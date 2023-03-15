@@ -2,13 +2,96 @@
 <x-nav/>
 
 
-<div class="center">
+<div class="container center">
 
+      <!-- Button trigger modal -->
+      <button type="button" class=" mb-4 button" data-bs-toggle="modal" data-bs-target="#exampleModal"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+      </svg>
+        Add Customer
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header" style="color: white; background-color:#009879;">
+              <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
+            </div>
+            <div class="modal-body">
+                <form action="/store/customer" method="POST">
+                      @csrf
+                      
+                      @error('email')
+                          <p>Invalid Account</p>
+                      @enderror
+                      <div class="mb-3">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input 
+                        type="text" 
+                        class="form-control item" 
+                        aria-describedby="emailHelp"
+                        name="lastName" required> 
+                      </div>
+                      <div class="mb-3">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input 
+                        type="text" 
+                        class="form-control item" 
+                        aria-describedby="emailHelp"
+                        name="firstName" required> 
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email Address</label>
+                        <input 
+                        type="email" 
+                        class="form-control item" 
+                        id="exampleInputEmail1" 
+                        aria-describedby="emailHelp"
+                        name="email" required>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="contactNumber" class="form-label">Contact Number</label>
+                        <input 
+                        type="number" 
+                        class="form-control item" 
+                        aria-describedby="emailHelp"
+                        name="contactNumber" required> 
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <input 
+                        type="text" 
+                        class="form-control item" 
+                        aria-describedby="emailHelp"
+                        name="address" required> 
+                      </div>
+            
+            </div>
+            <div class="modal-footer">
+              <button type="button" class=" mb-4 button" style="background-color:gray;" data-bs-dismiss="modal" >Close</button>
+              <button type="submit" class=" mb-4 button" > Add </button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+   
 @if(Session::has('success'))
 <div class="alert alert-success" role="alert">
     {{session::get('success')}}
     </div>
     @endif
+    @if(Session::has('deleted'))
+<div class="alert alert-danger" role="alert">
+    {{session::get('deleted')}}
+    </div>
+    @endif
+
+    
 
     
                 <table id="tbl" class="content-table center" >

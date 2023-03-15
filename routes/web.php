@@ -22,6 +22,6 @@ Route::get('/register', [UserController::class, 'register']);
 Route::post('/login/process', [UserController::class, 'process']);
 Route::post('/store', [UserController::class, 'store']);
 
-
+Route::post('/store/customer', [CustomerController::class, 'store']);
 Route::get('/delete/{id}', [CustomerController::class, 'delete']);
 Route::get('/logout', [UserController::class, 'logout']);

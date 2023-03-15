@@ -23,6 +23,8 @@ class UserController extends Controller
             $req->session()->regenerate();
 
             return redirect("/");
+        }else{
+            return redirect("login");
         }
 
 
@@ -36,9 +38,9 @@ class UserController extends Controller
     public function store(Request $req){
         //dd($req);
         $validated=$req->validate([
-            "name"=>['required','min:4'],
+            "name"=>['required'],
             "email"=>['required','email', Rule::unique('users','email'),],
-            "password"=>'required|confirmed|min:6'
+            "password"=>'required|confirmed'
         ]);
 
         $validated['password']=Hash::make($validated['password']);

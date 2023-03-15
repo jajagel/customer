@@ -17,6 +17,23 @@ class CustomerController extends Controller
         $delete=DB::table("customers")
         ->where("id","=",$id )
         ->delete();
-        return redirect('/')->with('success','Customer deleted successfully.');
+        return redirect('/')->with('deleted','Customer deleted successfully.');
     }
+
+    public function store(Request $req){
+        //dd($req);
+        $validated=$req->validate([
+            "firstName"=>['required'],
+            "lastName"=>['required'],
+            "email"=>['required','email'],
+            "contactNumber"=>['required'],
+            "address"=>['required'],
+        ]);
+
+        $customer=Customer::create($validated);
+
+        return redirect()->back()->with('success','Customer Added Successfully');
+
+    }
+    
 }
