@@ -35,5 +35,32 @@ class CustomerController extends Controller
         return redirect()->back()->with('success','Customer Added Successfully');
 
     }
+    public function update(Request $request, Customer $customer)
+    {
+        $request->validate([
+            "firstName"=>['required'],
+            "lastName"=>['required'],
+            "email"=>['required','email'],
+            "contactNumber"=>['required'],
+            "address"=>['required'],
+        ]);
+
+        $id = $request->id;
+        $firstName = $request->firstName;
+        $lastName = $request->lastName;
+        $email = $request->email;
+        $contactNumber = $request->contactNumber;
+        $address = $request->address;
+
+        Customer::where('id','=',$id)->update([
+            'firstName' => $firstName,
+            'lastName' => $lastName,
+            'email' => $email,
+            'contactNumber' => $contactNumber,
+            'address' => $address,
+        ]);
+
+        return redirect()->back()->with('success','Record Updated Successfully');
+    }
     
 }
