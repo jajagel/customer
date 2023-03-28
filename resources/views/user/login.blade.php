@@ -1,11 +1,11 @@
 @include('partials.header')
-
 <div class="trimmed-cover" style="width: 100%; background-color:#009879; ">
+
   <div class="container">
 <div class="registration-form">
 <div style="max-width:50rem;" class="center" >
 
-
+<div>
 <form action="/login/process" method="POST">
     @csrf
     
@@ -35,9 +35,14 @@
 
     <div align="right" class= "col-lg-6" ><button type="submit"  class="btn mb-3 create-account" style="color:white; background-color:#009879;" >Submit</button></div>
 </div>
-  </form>
 
-  </div>
-  
-    </div>
+  </form>
 </div>
+  </div>
+ 
+    </div>
+    
+</div>
+</div>
+
+ 

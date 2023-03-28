@@ -1,11 +1,11 @@
       <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header" style="color: white; background-color:#009879;">
-              <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
+      <div class="modal fade" style="border-radius: 30px; " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="border-radius: 30px; ">
+          <div class="modal-content" style="border-radius: 30px; ">
+            <div class="modal-header" style="border-radius: 30px 30px 0px 0px;color: white; background-color:#009879;">
+              <h5 class="modal-title ms-2" id="exampleModalLabel">Add Customer</h5>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="padding: 30px; ">
                 <form action="/store/customer" method="POST">
                       @csrf
                       
@@ -59,8 +59,8 @@
             
             </div>
             <div class="modal-footer">
-              <button type="button" class=" mb-4 button" style="background-color:gray;" data-bs-dismiss="modal" >Close</button>
-              <button type="submit" class=" mb-4 button" > Add </button>
+              <button type="button" class=" mb-2 button" style="background-color:gray;" data-bs-dismiss="modal" >Close</button>
+              <button type="submit" class=" mb-2 button" > Add </button>
             </div>
             </form>
           </div>

@@ -1,5 +1,5 @@
 @include('partials.header')
-<div class="trimmed-cover" style="width: 100%; background-color:#009879; ">
+<div class="trimmed-cover" style="width: 100%; background-color:#009879;">
   <div class="container">
 <div class="registration-form">
 <div style="max-width:50rem;" class="center" >
