@@ -22,7 +22,7 @@ class UserController extends Controller
         if(auth()->attempt($validated)){
             $req->session()->regenerate();
 
-            return redirect("/");
+            return redirect("/customer");
         }else{
             return redirect("login");
         }
